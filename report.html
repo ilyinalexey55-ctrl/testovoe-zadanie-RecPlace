@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ЛабКомфорт · отчёт по сопровождению</title>
+    <link rel="stylesheet" href="design/tokens.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="report.css" />
+    <script src="report.js" defer></script>
+  </head>
+  <body class="report-page">
+    <header class="site-header">
+      <div class="site-header__brand"><img src="assets/recplace-logo.png" alt="RecPlace" width="165" height="28" /></div>
+      <nav class="view-switch" aria-label="Раздел страницы" data-active="report">
+        <span class="view-switch__thumb" aria-hidden="true"></span>
+        <a class="view-switch__button" href="index.html">Продажа</a>
+        <a class="view-switch__button is-active" href="report.html" aria-current="page">Отчёт</a>
+      </nav>
+    </header>
+    <main class="page-shell">
+      <header class="client-context">
+        <div class="client-context__identity"><div>
+          <h1 id="client-name">Загружаем данные клиента…</h1>
+          <p id="client-meta" class="client-context__meta">Готовим отчёт по сопровождению</p>
+        </div></div>
+        <div class="analysis-period"><span class="analysis-period__label">Отчёт по сопровождению</span><strong id="report-period">Загружаем период…</strong></div>
+      </header>
+      <div id="global-state" aria-live="polite"></div>
+
+      <section class="analysis-section current-services" aria-labelledby="current-services-title">
+        <div class="section-heading"><h2 id="current-services-title">Услуги клиента</h2></div>
+        <div class="report-services">
+          <article><h3>Абонентское сопровождение</h3><p>Анализируем источники и качество заявок, отслеживаем динамику и готовим отчёт</p></article>
+          <article><h3 id="service-name-summary">Чистка Авито</h3><p>Отдельная работа с отзывами и нецелевыми обращениями</p></article>
+        </div>
+      </section>
+
+      <section class="channel-report" aria-labelledby="channel-title">
+        <div id="channel-state" class="state-slot" aria-live="polite"></div>
+        <div id="channel-content" hidden>
+          <div class="finding report-finding"><div class="finding__copy"><h2>Результаты месяца</h2><p id="channel-finding-title" class="month-result-summary">Считаем динамику обращений…</p><ul id="channel-finding-copy" class="month-result-list"></ul></div></div>
+          <div class="analysis-section">
+            <div class="section-heading"><div><h2 id="channel-title">Общая динамика по каналам</h2><p id="channel-period" class="section-description"></p></div></div>
+            <div class="table-wrap">
+              <table class="data-table report-table channel-table">
+                <thead><tr><th rowspan="2" scope="col">Канал</th><th colspan="4" scope="colgroup">До старта работ</th><th colspan="4" scope="colgroup">Последний период</th><th rowspan="2" scope="col" class="rate-change-heading">Изменение доли нецелевых</th></tr><tr><th scope="col">Всего</th><th scope="col">Целевые</th><th scope="col">Нецелевые</th><th scope="col">Доля нецелевых</th><th scope="col">Всего</th><th scope="col">Целевые</th><th scope="col">Нецелевые</th><th scope="col">Доля нецелевых</th></tr></thead>
+                <tbody id="channel-rows"></tbody><tfoot id="channel-total"></tfoot>
+              </table>
+            </div>
+            <p id="channel-note" class="method-note"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="service-report" aria-labelledby="service-brief-title">
+        <header class="service-brief">
+          <div class="service-brief__main"><h2 id="service-brief-title">Чистка Авито</h2><p id="promise-copy" class="service-promise">Загружаем обещание клиенту…</p></div>
+          <dl class="service-dates"><div><dt>Начало работ</dt><dd id="service-start">…</dd></div></dl>
+        </header>
+
+        <section class="analysis-section review-report" aria-labelledby="reviews-title">
+          <div class="section-heading task-heading"><div><h3 id="reviews-title">Ответы на отзывы</h3><p class="task-description">Задача: ответить на все отзывы за месяц</p><div class="task-result"><span class="task-result__label">Промежуточный итог</span><span id="reviews-status" class="result-status">Ожидаем данные</span><p id="reviews-insight" class="report-insight" hidden></p></div></div></div>
+          <div id="history-state" class="state-slot" aria-live="polite"></div>
+          <div id="review-content" hidden>
+            <div class="review-comparison">
+              <div><span class="metric-label">Без ответа на старте</span><strong id="reviews-before" class="metric-number">…</strong><small id="reviews-before-date"></small></div>
+              <div><span class="metric-label">Без ответа на дату отчёта</span><strong id="reviews-after" class="metric-number">…</strong><small id="reviews-after-date"></small></div>
+              <div><span class="metric-label">Изменение</span><strong id="reviews-change" class="metric-number">…</strong><small id="reviews-change-note"></small></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="analysis-section junk-report" aria-labelledby="junk-title">
+          <div class="section-heading task-heading"><div><h3 id="junk-title">Снижение доли нецелевых обращений</h3><p class="task-description">Задача: уменьшить долю нецелевых заявок с Авито вдвое</p><div class="task-result"><span class="task-result__label">Промежуточный итог</span><span id="junk-status" class="result-status">Ожидаем данные</span><p id="junk-insight" class="report-insight" hidden></p></div></div></div>
+          <div id="avito-state" class="state-slot" aria-live="polite"></div>
+          <div id="junk-content" hidden>
+            <p id="avito-period" class="section-description comparison-period"></p>
+            <div class="target-comparison" aria-label="Доля нецелевых обращений: до старта, сейчас и цель">
+              <div><span class="metric-label">До старта работ</span><strong id="junk-before-rate" class="metric-number">…</strong><small id="junk-before-count"></small></div>
+              <div><span class="metric-label">Последний период</span><strong id="junk-after-rate" class="metric-number">…</strong><small id="junk-after-count"></small></div>
+              <div class="target-metric"><span class="metric-label">Цель по обещанию</span><strong id="junk-target-rate" class="metric-number">…</strong><small>Половина исходной доли</small></div>
+            </div>
+
+            <section class="report-detail" aria-labelledby="reasons-title">
+              <div class="detail-heading"><h4 id="reasons-title">Что изменилось в причинах</h4><p>Количество нецелевых заявок по отметкам в обращениях</p></div>
+              <div class="table-wrap"><table class="data-table report-table reason-table"><thead><tr><th scope="col">Причина</th><th scope="col">До старта</th><th scope="col">Последний период</th><th scope="col">Изменение</th></tr></thead><tbody id="reason-rows"></tbody></table></div>
+              <p class="report-conclusion"><strong>Вывод:</strong> <span id="reason-conclusion"></span></p>
+            </section>
+
+            <section class="report-detail" aria-labelledby="service-leads-title">
+              <div class="detail-heading"><h4 id="service-leads-title">Заявки по услугам на Авито</h4><p id="service-period">Целевые и нецелевые заявки по каждому направлению</p></div>
+              <div id="service-state" class="state-slot" aria-live="polite"></div>
+              <div id="service-content" class="table-wrap" hidden>
+                <table class="data-table report-table service-table"><thead><tr><th rowspan="2" scope="col">Услуги</th><th colspan="3" scope="colgroup">До старта работ</th><th colspan="3" scope="colgroup">Последние 30 дней</th></tr><tr><th scope="col">Целевые</th><th scope="col">Нецелевые</th><th scope="col">Доля нецелевых</th><th scope="col">Целевые</th><th scope="col">Нецелевые</th><th scope="col">Доля нецелевых</th></tr></thead><tbody id="service-rows"></tbody><tfoot id="service-total"></tfoot></table>
+              </div>
+              <p class="report-conclusion"><strong>Вывод:</strong> <span id="service-conclusion"></span></p>
+              <p id="service-note" class="method-note"></p>
+            </section>
+          </div>
+        </section>
+      </section>
+      <section class="analysis-section next-steps" aria-labelledby="next-steps-title">
+        <div class="section-heading"><h2 id="next-steps-title">Что делаем дальше</h2></div>
+        <div class="table-wrap">
+          <table class="data-table report-table next-steps-table">
+            <thead><tr><th scope="col">Задача</th><th scope="col">Планируемые шаги</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Ответы на отзывы</th><td>Продолжаем отвечать на отзывы и увеличиваем темп работы в этом направлении</td></tr>
+              <tr><th scope="row">Снижение доли нецелевых заявок с Авито</th><td>Разбираемся с объявлениями, которые дают больше всего нецелевых заявок, анализируем причины и корректируем объявления</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <footer class="page-footer"><span id="data-period-note"></span><button id="reload-button" class="reload-button" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.2 7.1A6.6 6.6 0 0 0 4.6 5.4L3.2 7M3.2 7V3.9M3.2 7h3.1M3.8 12.9a6.6 6.6 0 0 0 11.6 1.7l1.4-1.6m0 0v3.1m0-3.1h-3.1" /></svg>Обновить данные</button></footer>
+    </main>
+  </body>
+</html>

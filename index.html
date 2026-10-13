@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ЛабКомфорт — анализ заявок</title>
+    <link rel="stylesheet" href="design/tokens.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!--
+      THESIS: Продажа начинается с качества потока заявок, а не с перегруженного аудита площадок.
+      OWN-WORLD: Спокойное рабочее поле RecPlace: светлая поверхность, графитовый текст, фиолетовые данные и точечный фирменный оранжевый.
+      STORY: Владелец узнаёт свой бизнес, видит долю целевых и мусорных обращений, затем причины на Авито и ежемесячное предложение.
+      FIRST VIEWPORT: Клиент и граница среза сверху; вывод о каналах и таблица в первом экране; причины Авито ниже; абонентка и допуслуга в финальном блоке.
+      FORM: Операционный аналитический экран, структура привязана к заданному сценарию продажи; новые значения не имитируются.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <header class="site-header">
+      <div class="site-header__brand">
+        <img src="assets/recplace-logo.png" alt="RecPlace" width="165" height="28" />
+      </div>
+      <div class="view-switch" role="group" aria-label="Раздел страницы" data-active="sale">
+        <span class="view-switch__thumb" aria-hidden="true"></span>
+        <button class="view-switch__button is-active" type="button" data-view="sale" aria-pressed="true">Продажа</button>
+        <button class="view-switch__button" type="button" data-view="report" aria-pressed="false">Отчёт</button>
+      </div>
+    </header>
+    <main class="page-shell">
+      <header class="client-context" aria-labelledby="page-title">
+        <div class="client-context__identity">
+          <div>
+            <h1 id="page-title" class="loading-text">Загружаем данные клиента…</h1>
+            <p id="client-meta" class="client-context__meta">Готовим анализ обращений</p>
+          </div>
+        </div>
+        <div class="analysis-period" id="analysis-period" aria-live="polite">
+          <span class="analysis-period__label">Период анализа</span>
+          <strong id="analysis-period-value">Определяем период…</strong>
+        </div>
+      </header>
+      <div class="client-state" id="client-state" aria-live="polite"></div>
+      <div id="stale-state"></div>
+
+      <section class="finding" aria-labelledby="finding-title">
+        <div class="finding__copy">
+          <h2 id="finding-title">Главная проблема: нецелевые заявки с Авито</h2>
+          <p id="finding-description" class="finding__description">Авито — основной канал привлечения для вас. Доля обращений с Авито и нецелевых заявок рассчитывается за выбранный период</p>
+        </div>
+      </section>
+
+      <section class="analysis-section channels-section" aria-labelledby="channels-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="channels-title">Откуда поступают обращения</h2>
+            <p id="channels-period" class="section-description">Количество заявок и их качество по каждому каналу</p>
+          </div>
+          <div class="period-switch" role="group" aria-label="Период для таблицы каналов" data-period-group="channels">
+            <button class="period-switch__button is-active" type="button" data-period="30d" aria-pressed="true">Последние 30 дней</button>
+            <button class="period-switch__button" type="button" data-period="all" aria-pressed="false">За всё время</button>
+          </div>
+        </div>
+        <div class="state-slot" id="channels-state" aria-live="polite"></div>
+        <div class="table-wrap" id="channels-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col">Канал</th>
+                <th scope="col" class="numeric">Обращения</th>
+                <th scope="col" class="numeric">Целевые</th>
+                <th scope="col" class="numeric">Нецелевые</th>
+                <th scope="col" class="numeric">Доля целевых</th>
+              </tr>
+            </thead>
+            <tbody id="channels-rows"></tbody>
+            <tfoot id="channels-total"></tfoot>
+          </table>
+        </div>
+        <p class="method-note">Целевое обращение — запрос на услугу, которую оказывает лаборатория</p>
+      </section>
+
+      <section class="analysis-section avito-section" aria-labelledby="avito-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="avito-title">Качество заявок с Авито</h2>
+            <p id="avito-period" class="section-description">Доля целевых и нецелевых заявок и причины нецелевых обращений</p>
+          </div>
+          <div class="period-switch" role="group" aria-label="Период для анализа Авито" data-period-group="avito">
+            <button class="period-switch__button is-active" type="button" data-period="30d" aria-pressed="true">Последние 30 дней</button>
+            <button class="period-switch__button" type="button" data-period="all" aria-pressed="false">За всё время</button>
+          </div>
+        </div>
+        <div class="state-slot" id="avito-state" aria-live="polite"></div>
+        <div class="avito-grid" id="avito-content">
+          <div class="avito-summary">
+            <div class="avito-summary__numbers">
+              <div class="avito-summary__metric">
+                <span id="avito-junk-rate" class="metric-number">…</span>
+                <span class="metric-label">нецелевых заявок</span>
+              </div>
+              <div class="avito-summary__metric">
+                <span id="avito-junk-count" class="metric-number">…</span>
+                <span class="metric-label">нецелевых / всего заявок</span>
+              </div>
+            </div>
+          </div>
+          <div class="reasons-panel">
+            <h3>Причины нецелевых обращений</h3>
+            <p class="reasons-panel__hint">По отметкам в заявках за выбранный период</p>
+            <ol class="reason-list" id="reason-list"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer" aria-labelledby="offer-title">
+        <div class="offer__intro">
+          <h2 id="offer-title">Предлагаемые решения</h2>
+        </div>
+        <div class="product-grid">
+          <article class="product product--subscription" aria-labelledby="subscription-title">
+            <p class="product__eyebrow">Что входит</p>
+            <h3 id="subscription-title">Абонентское сопровождение</h3>
+            <p class="product__description product__description--intro">Каждый месяц анализируем источники и качество обращений, отслеживаем изменения и определяем следующие шаги</p>
+            <ul class="product-points">
+              <li><strong>Все источники в одной картине</strong> — собираем заявки с Авито, карт, 2ГИС и сайта, анализируем каналы и конкурентов</li>
+              <li><strong>Понимание качества</strong> — разделяем обращения на целевые и нецелевые по согласованным критериям</li>
+              <li><strong>Понятный следующий шаг</strong> — отслеживаем динамику, готовим месячный отчёт и составляем план действий на следующий месяц</li>
+            </ul>
+            <p class="product__price-label">В месяц</p>
+            <strong class="product__price" id="base-fee">…</strong>
+          </article>
+
+          <article class="product product--avito" aria-labelledby="addon-title">
+            <p class="product__eyebrow">Дополнительная услуга</p>
+            <h3 id="addon-title">Чистка Авито</h3>
+            <div class="product__section">
+              <h4 class="product__section-title">Почему это важно</h4>
+              <div class="product-proof" aria-live="polite">
+                <strong id="addon-rate">…</strong>
+                <span id="addon-count">нецелевых обращений с Авито за последние 30 дней</span>
+              </div>
+              <p class="product__description product__description--evidence" id="addon-rationale">Причины нецелевых обращений подскажут, что проверить в объявлениях</p>
+            </div>
+            <div class="product__section">
+              <h4 class="product__section-title">Что входит</h4>
+              <ul class="product-work-list">
+                <li><strong>Настройка объявлений</strong><span>Настраиваем объявления под услуги лаборатории и нужную географию</span></li>
+                <li><strong>Отсев нецелевых обращений</strong><span>Отсеиваем вакансии, обращения из других городов, дубли и рекламные предложения</span></li>
+              </ul>
+            </div>
+            <p class="product__price-label">Стоимость в месяц</p>
+            <strong class="product__price" id="addon-fee">…</strong>
+          </article>
+        </div>
+        <div class="offer-total">
+          <span>Сопровождение + «Чистка Авито» · итого в месяц</span>
+          <strong id="combined-fee">…</strong>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <button id="reload-button" class="reload-button" type="button" aria-label="Обновить данные">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.2 7.1A6.6 6.6 0 0 0 4.6 5.4L3.2 7M3.2 7V3.9M3.2 7h3.1M3.8 12.9a6.6 6.6 0 0 0 11.6 1.7l1.4-1.6m0 0v3.1m0-3.1h-3.1" /></svg>
+          Обновить данные
+        </button>
+      </footer>
+    </main>
+  </body>
+</html>

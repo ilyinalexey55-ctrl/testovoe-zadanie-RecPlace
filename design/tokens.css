@@ -1,0 +1,62 @@
+/* Фирменные токены RecPlace. Подключение по желанию — на оценку тестового не влияет,
+   даёт бонусные баллы. Источник: workspace/30-design/tokens.json (2026-08-12).
+
+   Шрифты: Raleway — основной, 80% текста, начертания 500–700.
+           Unbounded — акцентный, не больше 20%: заголовки, цифры-акценты, метки.
+   Если шрифты не подключены — честный фолбэк ниже, без тихой ссылки на CDN. */
+
+:root {
+  --font-primary: Raleway, system-ui, -apple-system, sans-serif;
+  --font-accent: Unbounded, Raleway, system-ui, sans-serif;
+
+  --text-primary: #1d1d1f;
+  --text-secondary: rgba(61, 60, 67, 0.6);
+  --text-tertiary: rgba(61, 60, 67, 0.4);
+  --text-link: #513dd7;
+  --text-accent: #fa6520;
+  --text-success: #19712f;
+  --text-primary-invert: #ffffff;
+
+  --bg-default: #ffffff;
+  --bg-surface: #f5f5f5;
+  --bg-canvas: #f6f5fa;
+  --bg-default-invert: #222325;
+
+  --stroke-separator: #c8c7cb;
+  --stroke-separator-light: #f5f5f5;
+
+  --brand-5: rgba(250, 101, 32, 0.07);
+  --brand-10: rgba(250, 101, 32, 0.2);
+  --brand-15: rgba(250, 101, 32, 0.35);
+  --brand-30: rgba(250, 101, 32, 0.65);
+  --brand-50: #fa6520;
+  --brand-65: #d04808;
+  --brand-80: #9e3606;
+  --brand-100: #6d2604;
+
+  --violet-80: #513dd7;
+  --violet-100: #36269e;
+
+  /* статусы */
+  --red: #ff3b30;
+  --orange: #ff9500;
+  --yellow: #ffcc00;
+  --green: #34c759;
+  --blue: #007aff;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  background: var(--bg-canvas);
+}
+
+h1, h2, .accent-number, .label {
+  font-family: var(--font-accent);
+}
+
+/* Жирный Raleway идёт с отрицательным трекингом — иначе выглядит распухшим */
+b, strong, .bold {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}

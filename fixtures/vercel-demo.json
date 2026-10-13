@@ -1,0 +1,307 @@
+{
+  "clients": [
+    {
+      "client_id": "cl-01",
+      "brand": "ЛабКомфорт",
+      "niche": "медицинская лаборатория",
+      "city": "Москва",
+      "manager": "Ирина",
+      "monthly_fee": 15000,
+      "service_started": "2026-07-26",
+      "service_sold": "Чистка Авито",
+      "promise": "за месяц ответить на все отзывы и снизить долю мусорных обращений вдвое"
+    }
+  ],
+  "leads": [
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-04",
+      "channel": "Звонок с визитки",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "ошиблись номером"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-05",
+      "channel": "Авито",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "спрашивали вакансии"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-08",
+      "channel": "Яндекс Карты",
+      "service": "консультация",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-10",
+      "channel": "Яндекс Карты",
+      "service": "УЗИ",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-15",
+      "channel": "2ГИС",
+      "service": "справка для работы",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-18",
+      "channel": "Сайт",
+      "service": "чекап",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-23",
+      "channel": "2ГИС",
+      "service": "справка для работы",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-06-29",
+      "channel": "Авито",
+      "service": "чистка зубов",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-04",
+      "channel": "2ГИС",
+      "service": "справка для работы",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-08",
+      "channel": "Авито",
+      "service": "чекап",
+      "is_junk": "да",
+      "junk_reason": "спрашивали вакансии"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-09",
+      "channel": "Авито",
+      "service": "приём терапевта",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-13",
+      "channel": "Авито",
+      "service": "справка для работы",
+      "is_junk": "да",
+      "junk_reason": "дубль заявки"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-16",
+      "channel": "Авито",
+      "service": "анализы крови",
+      "is_junk": "да",
+      "junk_reason": "реклама услуг"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-16",
+      "channel": "Авито",
+      "service": "чекап",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-23",
+      "channel": "Авито",
+      "service": "чекап",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-23",
+      "channel": "Авито",
+      "service": "справка для работы",
+      "is_junk": "да",
+      "junk_reason": "не тот город"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-24",
+      "channel": "Авито",
+      "service": "справка для работы",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-24",
+      "channel": "Авито",
+      "service": "консультация",
+      "is_junk": "да",
+      "junk_reason": "не тот город"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-28",
+      "channel": "Авито",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "не тот город"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-28",
+      "channel": "Авито",
+      "service": "анализы крови",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-30",
+      "channel": "2ГИС",
+      "service": "УЗИ",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-31",
+      "channel": "Авито",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "ошиблись номером"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-07-31",
+      "channel": "Сайт",
+      "service": "справка для работы",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-02",
+      "channel": "Авито",
+      "service": "чистка зубов",
+      "is_junk": "да",
+      "junk_reason": "дубль заявки"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-04",
+      "channel": "Авито",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "спрашивали вакансии"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-05",
+      "channel": "Авито",
+      "service": "консультация",
+      "is_junk": "да",
+      "junk_reason": "не тот город"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-15",
+      "channel": "Авито",
+      "service": "анализы крови",
+      "is_junk": "да",
+      "junk_reason": "реклама услуг"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-15",
+      "channel": "Авито",
+      "service": "чекап",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-17",
+      "channel": "Авито",
+      "service": "чистка зубов",
+      "is_junk": "да",
+      "junk_reason": "дубль заявки"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-17",
+      "channel": "Авито",
+      "service": "имплантация",
+      "is_junk": "да",
+      "junk_reason": "реклама услуг"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-18",
+      "channel": "Авито",
+      "service": "УЗИ",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-19",
+      "channel": "Авито",
+      "service": "анализы крови",
+      "is_junk": "нет",
+      "junk_reason": ""
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-22",
+      "channel": "Авито",
+      "service": "справка для работы",
+      "is_junk": "да",
+      "junk_reason": "дубль заявки"
+    },
+    {
+      "client_id": "cl-01",
+      "date": "2026-08-22",
+      "channel": "Сайт",
+      "service": "УЗИ",
+      "is_junk": "нет",
+      "junk_reason": ""
+    }
+  ],
+  "history": {
+    "cl-01": {
+      "before": {
+        "date": "2026-07-26",
+        "reviews_unanswered": 137,
+        "visibility_top10": 0,
+        "visibility_outside_top20": 940,
+        "card_filled_percent": 71
+      },
+      "after": {
+        "date": "2026-08-20",
+        "reviews_unanswered": 98,
+        "visibility_top10": 0,
+        "visibility_outside_top20": 932,
+        "card_filled_percent": 77
+      }
+    }
+  }
+}
